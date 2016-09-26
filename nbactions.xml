@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>rebuild</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+            </goals>
+            <properties>
+                <Env.SLACK_WEBHOOK_TEST_URL>https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</Env.SLACK_WEBHOOK_TEST_URL>
+                
+                <Env.SLACK_BOT_TEST_API_TOKEN>xoxb-82592016034-fbHl7UTWBuaHkeB8yAwcdAsb</Env.SLACK_BOT_TEST_API_TOKEN>
+                
+                
+            </properties>
+        </action>
+        <action>
+            <actionName>test.single</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>test-compile</goal>
+                <goal>surefire:test</goal>
+            </goals>
+            <properties>
+                <test>${packageClassName}</test>
+                <Env.SLACK_WEBHOOK_TEST_URL>https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</Env.SLACK_WEBHOOK_TEST_URL>
+                <Env.SLACK_BOT_TEST_API_TOKEN>xoxb-82592016034-fbHl7UTWBuaHkeB8yAwcdAsb</Env.SLACK_BOT_TEST_API_TOKEN>
+                
+            </properties>
+        </action>
+        <action>
+            <actionName>test</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>test</goal>
+            </goals>
+            <properties>
+                <Env.SLACK_WEBHOOK_TEST_URL>https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</Env.SLACK_WEBHOOK_TEST_URL>
+                <Env.SLACK_BOT_TEST_API_TOKEN>xoxb-82592016034-fbHl7UTWBuaHkeB8yAwcdAsb</Env.SLACK_BOT_TEST_API_TOKEN>
+                
+            </properties>
+        </action>
+        <action>
+            <actionName>debug.test.single</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>test-compile</goal>
+                <goal>surefire:test</goal>
+            </goals>
+            <properties>
+                <test>${packageClassName}</test>
+                <forkMode>once</forkMode>
+                <maven.surefire.debug>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address}</maven.surefire.debug>
+                <jpda.listen>true</jpda.listen>
+                <Env.SLACK_WEBHOOK_TEST_URL>https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</Env.SLACK_WEBHOOK_TEST_URL>
+                <Env.SLACK_BOT_TEST_API_TOKEN>xoxb-82592016034-fbHl7UTWBuaHkeB8yAwcdAsb</Env.SLACK_BOT_TEST_API_TOKEN>
+            </properties>
+        </action>
+    </actions>

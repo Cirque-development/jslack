@@ -12,6 +12,8 @@ import java.util.List;
 @Data
 @Builder
 public class Attachment {
+    
+    private List<String> mrkdwnIn;
 
     /**
      * A plain-text summary of the attachment. This text will be used in clients that don't show formatted text
@@ -122,6 +124,6 @@ public class Attachment {
      * <p>
      * Use ts when referencing articles or happenings. Your message will have its own timestamp when published.
      */
-    private Integer ts;
+    private Long ts;
 
 }

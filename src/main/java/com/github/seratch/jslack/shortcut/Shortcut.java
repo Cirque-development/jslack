@@ -35,20 +35,13 @@ public interface Shortcut {
      */
     Optional<ChannelName> findChannelNameById(ChannelId channelId);
 
-    /**
-     * Returns a list of messages in the channel a given name matches.
-     */
-    List<Message> findRecentMessagesByName(ChannelName name) throws IOException, SlackApiException;
+   
 
     /**
      * Adds a reaction to a specified message.
      */
     ReactionsAddResponse addReaction(Message message, ReactionName reactionName) throws IOException, SlackApiException;
 
-    /**
-     * Returns search result by a given query.
-     */
-    SearchAllResponse search(String query) throws IOException, SlackApiException;
 
     /**
      * Posts a message to a given channel.

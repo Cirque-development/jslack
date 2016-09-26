@@ -9,15 +9,7 @@ import com.github.seratch.jslack.api.methods.request.chat.ChatDeleteRequest;
 import com.github.seratch.jslack.api.methods.request.chat.ChatMeMessageRequest;
 import com.github.seratch.jslack.api.methods.request.chat.ChatPostMessageRequest;
 import com.github.seratch.jslack.api.methods.request.chat.ChatUpdateRequest;
-import com.github.seratch.jslack.api.methods.request.dnd.*;
 import com.github.seratch.jslack.api.methods.request.emoji.EmojiListRequest;
-import com.github.seratch.jslack.api.methods.request.files.*;
-import com.github.seratch.jslack.api.methods.request.files.comments.FilesCommentsAddRequest;
-import com.github.seratch.jslack.api.methods.request.files.comments.FilesCommentsDeleteRequest;
-import com.github.seratch.jslack.api.methods.request.files.comments.FilesCommentsEditRequest;
-import com.github.seratch.jslack.api.methods.request.groups.*;
-import com.github.seratch.jslack.api.methods.request.im.*;
-import com.github.seratch.jslack.api.methods.request.mpim.*;
 import com.github.seratch.jslack.api.methods.request.oauth.OAuthAccessRequest;
 import com.github.seratch.jslack.api.methods.request.pins.PinsAddRequest;
 import com.github.seratch.jslack.api.methods.request.pins.PinsListRequest;
@@ -54,15 +46,7 @@ import com.github.seratch.jslack.api.methods.response.chat.ChatDeleteResponse;
 import com.github.seratch.jslack.api.methods.response.chat.ChatMeMessageResponse;
 import com.github.seratch.jslack.api.methods.response.chat.ChatPostMessageResponse;
 import com.github.seratch.jslack.api.methods.response.chat.ChatUpdateResponse;
-import com.github.seratch.jslack.api.methods.response.dnd.*;
 import com.github.seratch.jslack.api.methods.response.emoji.EmojiListResponse;
-import com.github.seratch.jslack.api.methods.response.files.*;
-import com.github.seratch.jslack.api.methods.response.files.comments.FilesCommentsAddResponse;
-import com.github.seratch.jslack.api.methods.response.files.comments.FilesCommentsDeleteResponse;
-import com.github.seratch.jslack.api.methods.response.files.comments.FilesCommentsEditResponse;
-import com.github.seratch.jslack.api.methods.response.groups.*;
-import com.github.seratch.jslack.api.methods.response.im.*;
-import com.github.seratch.jslack.api.methods.response.mpim.*;
 import com.github.seratch.jslack.api.methods.response.oauth.OAuthAccessResponse;
 import com.github.seratch.jslack.api.methods.response.pins.PinsAddResponse;
 import com.github.seratch.jslack.api.methods.response.pins.PinsListResponse;
@@ -113,43 +97,15 @@ public interface MethodsClient {
 
     AuthTestResponse authTest(AuthTestRequest req) throws IOException, SlackApiException;
 
-    // ------------------------------
-    // bots
-    // ------------------------------
-
-    BotsInfoResponse botsInfo(BotsInfoRequest req) throws IOException, SlackApiException;
 
     // ------------------------------
     // channels
     // ------------------------------
 
-    ChannelsArchiveResponse channelsArchive(ChannelsArchiveRequest req) throws IOException, SlackApiException;
-
-    ChannelsCreateResponse channelsCreate(ChannelsCreateRequest req) throws IOException, SlackApiException;
-
-    ChannelsHistoryResponse channelsHistory(ChannelsHistoryRequest req) throws IOException, SlackApiException;
-
-    ChannelsInfoResponse channelsInfo(ChannelsInfoRequest req) throws IOException, SlackApiException;
 
     ChannelsListResponse channelsList(ChannelsListRequest req) throws IOException, SlackApiException;
 
-    ChannelsInviteResponse channelsInvite(ChannelsInviteRequest req) throws IOException, SlackApiException;
 
-    ChannelsJoinResponse channelsJoin(ChannelsJoinRequest req) throws IOException, SlackApiException;
-
-    ChannelsKickResponse channelsKick(ChannelsKickRequest req) throws IOException, SlackApiException;
-
-    ChannelsLeaveResponse channelsLeave(ChannelsLeaveRequest req) throws IOException, SlackApiException;
-
-    ChannelsMarkResponse channelsMark(ChannelsMarkRequest req) throws IOException, SlackApiException;
-
-    ChannelsRenameResponse channelsRename(ChannelsRenameRequest req) throws IOException, SlackApiException;
-
-    ChannelsSetPurposeResponse channelsSetPurpose(ChannelsSetPurposeRequest req) throws IOException, SlackApiException;
-
-    ChannelsSetTopicResponse channelsSetTopic(ChannelsSetTopicRequest req) throws IOException, SlackApiException;
-
-    ChannelsUnarchiveResponse channelsUnarchive(ChannelsUnarchiveRequest req) throws IOException, SlackApiException;
 
     // ------------------------------
     // chat
@@ -163,19 +119,7 @@ public interface MethodsClient {
 
     ChatUpdateResponse chatUpdate(ChatUpdateRequest req) throws IOException, SlackApiException;
 
-    // ------------------------------
-    // dnd
-    // ------------------------------
-
-    DndEndDndResponse dndEndDnd(DndEndDndRequest req) throws IOException, SlackApiException;
-
-    DndEndSnoozeResponse dndEndSnooze(DndEndSnoozeRequest req) throws IOException, SlackApiException;
-
-    DndInfoResponse dndInfo(DndInfoRequest req) throws IOException, SlackApiException;
-
-    DndSetSnoozeResponse dndSetSnooze(DndSetSnoozeRequest req) throws IOException, SlackApiException;
-
-    DndTeamInfoResponse dndTeamInfo(DndTeamInfoRequest req) throws IOException, SlackApiException;
+ 
 
     // ------------------------------
     // emoji
@@ -183,95 +127,7 @@ public interface MethodsClient {
 
     EmojiListResponse emojiList(EmojiListRequest req) throws IOException, SlackApiException;
 
-    // ------------------------------
-    // files
-    // ------------------------------
 
-    FilesDeleteResponse filesDelete(FilesDeleteRequest req) throws IOException, SlackApiException;
-
-    FilesInfoResponse filesInfo(FilesInfoRequest req) throws IOException, SlackApiException;
-
-    FilesListResponse filesList(FilesListRequest req) throws IOException, SlackApiException;
-
-    FilesRevokePublicURLResponse filesRevokePublicURL(FilesRevokePublicURLRequest req) throws IOException, SlackApiException;
-
-    FilesSharedPublicURLResponse filesSharedPublicURL(FilesSharedPublicURLRequest req) throws IOException, SlackApiException;
-
-    FilesUploadResponse filesUpload(FilesUploadRequest req) throws IOException, SlackApiException;
-
-    // ------------------------------
-    // files.comments
-    // ------------------------------
-
-    FilesCommentsAddResponse filesCommentsAdd(FilesCommentsAddRequest req) throws IOException, SlackApiException;
-
-    FilesCommentsDeleteResponse filesCommentsDelete(FilesCommentsDeleteRequest req) throws IOException, SlackApiException;
-
-    FilesCommentsEditResponse filesCommentEdit(FilesCommentsEditRequest req) throws IOException, SlackApiException;
-
-    // ------------------------------
-    // groups
-    // ------------------------------
-
-    GroupsArchiveResponse groupsArchive(GroupsArchiveRequest req) throws IOException, SlackApiException;
-
-    GroupsCloseResponse groupsClose(GroupsCloseRequest req) throws IOException, SlackApiException;
-
-    GroupsCreateChildResponse groupsCreateChild(GroupsCreateChildRequest req) throws IOException, SlackApiException;
-
-    GroupsCreateResponse groupsCreate(GroupsCreateRequest req) throws IOException, SlackApiException;
-
-    GroupsHistoryResponse groupsHistory(GroupsHistoryRequest req) throws IOException, SlackApiException;
-
-    GroupsInfoResponse groupsInfo(GroupsInfoRequest req) throws IOException, SlackApiException;
-
-    GroupsInviteResponse groupsInvite(GroupsInviteRequest req) throws IOException, SlackApiException;
-
-    GroupsKickResponse groupsKick(GroupsKickRequest req) throws IOException, SlackApiException;
-
-    GroupsLeaveResponse groupsLeave(GroupsLeaveRequest req) throws IOException, SlackApiException;
-
-    GroupsListResponse groupsList(GroupsListRequest req) throws IOException, SlackApiException;
-
-    GroupsMarkResponse groupsMark(GroupsMarkRequest req) throws IOException, SlackApiException;
-
-    GroupsOpenResponse groupsOpen(GroupsOpenRequest req) throws IOException, SlackApiException;
-
-    GroupsRenameResponse groupsRename(GroupsRenameRequest req) throws IOException, SlackApiException;
-
-    GroupsSetPurposeResponse groupsSetPurpose(GroupsSetPurposeRequest req) throws IOException, SlackApiException;
-
-    GroupsSetTopicResponse groupsSetTopic(GroupsSetTopicRequest req) throws IOException, SlackApiException;
-
-    GroupsUnarchiveResponse groupsUnarchive(GroupsUnarchiveRequest req) throws IOException, SlackApiException;
-
-    // ------------------------------
-    // im
-    // ------------------------------
-
-    ImCloseResponse imClose(ImCloseRequest req) throws IOException, SlackApiException;
-
-    ImHistoryResponse imHistory(ImHistoryRequest req) throws IOException, SlackApiException;
-
-    ImListResponse imList(ImListRequest req) throws IOException, SlackApiException;
-
-    ImMarkResponse imMark(ImMarkRequest req) throws IOException, SlackApiException;
-
-    ImOpenResponse imOpen(ImOpenRequest req) throws IOException, SlackApiException;
-
-    // ------------------------------
-    // mpim
-    // ------------------------------
-
-    MpimCloseResponse mpimClose(MpimCloseRequest req) throws IOException, SlackApiException;
-
-    MpimHistoryResponse mpimHistory(MpimHistoryRequest req) throws IOException, SlackApiException;
-
-    MpimListResponse mpimList(MpimListRequest req) throws IOException, SlackApiException;
-
-    MpimMarkResponse mpimMark(MpimMarkRequest req) throws IOException, SlackApiException;
-
-    MpimOpenResponse mpimOpen(MpimOpenRequest req) throws IOException, SlackApiException;
 
     // ------------------------------
     // oauth
@@ -301,19 +157,7 @@ public interface MethodsClient {
 
     ReactionsRemoveResponse reactionsRemove(ReactionsRemoveRequest req) throws IOException, SlackApiException;
 
-    // ------------------------------
-    // reminders
-    // ------------------------------
-
-    RemindersAddResponse remindersAdd(RemindersAddRequest req) throws IOException, SlackApiException;
-
-    RemindersCompleteResponse remindersComplete(RemindersCompleteRequest req) throws IOException, SlackApiException;
-
-    RemindersDeleteResponse remindersDelete(RemindersDeleteRequest req) throws IOException, SlackApiException;
-
-    RemindersInfoResponse remindersInfo(RemindersInfoRequest req) throws IOException, SlackApiException;
-
-    RemindersListResponse remindersList(RemindersListRequest req) throws IOException, SlackApiException;
+    
 
     // ------------------------------
     // rtm
@@ -321,15 +165,6 @@ public interface MethodsClient {
 
     RTMStartResponse rtmStart(RTMStartRequest req) throws IOException, SlackApiException;
 
-    // ------------------------------
-    // search
-    // ------------------------------
-
-    SearchAllResponse searchAll(SearchAllRequest req) throws IOException, SlackApiException;
-
-    SearchMessagesResponse searchMessages(SearchMessagesRequest req) throws IOException, SlackApiException;
-
-    SearchFilesResponse searchFiles(SearchFilesRequest req) throws IOException, SlackApiException;
 
     // ------------------------------
     // stars
@@ -341,37 +176,6 @@ public interface MethodsClient {
 
     StarsRemoveResponse starsRemove(StarsRemoveRequest req) throws IOException, SlackApiException;
 
-    // ------------------------------
-    // team
-    // ------------------------------
-
-    TeamAccessLogsResponse teamAccessLogs(TeamAccessLogsRequest req) throws IOException, SlackApiException;
-
-    TeamBillableInfoResponse teamBillableInfo(TeamBillableInfoRequest req) throws IOException, SlackApiException;
-
-    TeamInfoResponse teamInfo(TeamInfoRequest req) throws IOException, SlackApiException;
-
-    TeamIntegrationLogsResponse teamIntegrationLogs(TeamIntegrationLogsRequest req) throws IOException, SlackApiException;
-
-    TeamProfileGetResponse teamProfileGet(TeamProfileGetRequest req) throws IOException, SlackApiException;
-
-    // ------------------------------
-    // usergroups
-    // ------------------------------
-
-    UsergroupsCreateResponse usergroupsCreate(UsergroupsCreateRequest req) throws IOException, SlackApiException;
-
-    UsergroupsDisableResponse usergroupsDisable(UsergroupsDisableRequest req) throws IOException, SlackApiException;
-
-    UsergroupsEnableResponse usergroupsEnable(UsergroupsEnableRequest req) throws IOException, SlackApiException;
-
-    UsergroupsListResponse usergroupsList(UsergroupsListRequest req) throws IOException, SlackApiException;
-
-    UsergroupsUpdateResponse usergroupsUpdate(UsergroupsUpdateRequest req) throws IOException, SlackApiException;
-
-    UsergroupUsersListResponse usergroupUsersList(UsergroupUsersListRequest req) throws IOException, SlackApiException;
-
-    UsergroupUsersUpdateResponse usergroupUsersUpdate(UsergroupUsersUpdateRequest req) throws IOException, SlackApiException;
 
     // ------------------------------
     // users
@@ -389,12 +193,5 @@ public interface MethodsClient {
 
     UsersSetPresenceResponse usersSetPresence(UsersSetPresenceRequest req) throws IOException, SlackApiException;
 
-    // ------------------------------
-    // users.profile
-    // ------------------------------
-
-    UsersProfileGetResponse usersProfileGet(UsersProfileGetRequest req) throws IOException, SlackApiException;
-
-    UsersProfileSetResponse usersProfileSet(UsersProfileSetRequest req) throws IOException, SlackApiException;
 
 }

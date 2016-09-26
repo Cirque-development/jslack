@@ -62,31 +62,7 @@ public class ShortcutImpl implements Shortcut {
                 .map(c -> new ChannelName(c.getName()));
     }
 
-    @Override
-    public List<Message> findRecentMessagesByName(ChannelName name) throws IOException, SlackApiException {
-        Optional<ChannelId> maybeChannelId = findChannelIdByName(name);
-        if (maybeChannelId.isPresent()) {
-            ChannelId channelId = maybeChannelId.get();
-            ChannelsHistoryResponse response = slack.methods().channelsHistory(ChannelsHistoryRequest.builder()
-                    .token(apiToken.get().getValue())
-                    .channel(channelId.getValue())
-                    .count(1000)
-                    .build());
-            if (response.isOk()) {
-                response.getMessages().forEach(message -> {
-                    // channel in message can bt null in this case...
-                    if (message.getChannel() == null) {
-                        message.setChannel(channelId.getValue());
-                    }
-                });
-                return response.getMessages();
-            } else {
-                return Collections.emptyList();
-            }
-        } else {
-            return Collections.emptyList();
-        }
-    }
+  
 
     @Override
     public ReactionsAddResponse addReaction(Message message, ReactionName reactionName) throws IOException, SlackApiException {
@@ -96,19 +72,6 @@ public class ShortcutImpl implements Shortcut {
                     .channel(message.getChannel())
                     .timestamp(message.getTs())
                     .name(reactionName.getValue())
-                    .build());
-        } else {
-            throw new IllegalStateException("apiToken is absent.");
-        }
-    }
-
-    @Override
-    public SearchAllResponse search(String query) throws IOException, SlackApiException {
-        if (apiToken.isPresent()) {
-            return slack.methods().searchAll(SearchAllRequest.builder()
-                    .token(apiToken.get().getValue())
-                    .query(query)
-                    .count(100)
                     .build());
         } else {
             throw new IllegalStateException("apiToken is absent.");
